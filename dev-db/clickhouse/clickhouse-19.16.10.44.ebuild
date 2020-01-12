@@ -505,7 +505,7 @@ src_prepare() {
 	if is-flagq '-fuse-ld*' || { ! tc-ld-is-lld && ! tc-ld-is-gold; }; then
 		mysed 'if \(NOT LINKER_NAME\)' 'if \(FALSE\) # ebuild: disable linker auto-choosing' cmake/target.cmake
 	fi
-	if use json && is-flag '-m*'; then
+	if use json && is-flagq '-m*'; then
 		echo 'set_target_properties(${SIMDJSON_LIBRARY} PROPERTIES COMPILE_FLAGS -mno-avx2)' >> \
 			contrib/simdjson-cmake/CMakeLists.txt
 	fi
@@ -665,7 +665,7 @@ src_configure() {
 		"PCLMUL: use=$(usex cpu_flags_x86_pclmul), flags=$(is-flag "-mpclmul")";
 	do
 		if [[ ! "${line}" =~ use=(yes,\ flags=true|no,\ flags=)$ ]]; then
-			if is-flag '-march=*'; then
+			if is-flagq '-march=*'; then
 				elog "Can't check if CFLAGS are set in accordance with CPU_FLAGS_X86 (${line}). "\
 					"This is probably OK as you have -march set."
 			else

@@ -669,7 +669,7 @@ src_configure() {
 		"PCLMUL: use=$(usex cpu_flags_x86_pclmul), flags=$(is-flag "-mpclmul")";
 	do
 		if [[ ! "${line}" =~ use=(yes,\ flags=true|no,\ flags=)$ ]]; then
-			if is-flag '-march=*'; then
+			if is-flagq '-march=*'; then
 				elog "Can't check if CFLAGS are set in accordance with CPU_FLAGS_X86 (${line}). "\
 					"This is probably OK as you have -march set."
 			else

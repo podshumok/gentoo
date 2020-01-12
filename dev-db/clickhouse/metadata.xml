@@ -31,6 +31,7 @@
 		<flag name="orc">Build ORC format support</flag>
 		<flag name="parquet">Build Parquet format support</flag>
 		<flag name="protobuf">Build protobuf format support</flag>
+		<flag name="s3">Build with AWS S3 support</flag>
 		<flag name="server">Build server</flag>
 		<flag name="split-binary">Link separate binaries for client and server and some tools instead of single binary</flag>
 		<flag name="tcmalloc">Build and use tcmalloc library for memory management</flag>
